@@ -1,0 +1,21 @@
+{
+  "name": "@altrex-ui/styling",
+  "version": "0.1.0",
+  "description": "Core design tokens for the Altrex design system",
+  "main": "dist/index.js",
+  "scripts": {
+    "build": "node build.js",
+    "watch": "node build.js --watch"
+  },
+  "keywords": [
+    "design-tokens",
+    "design-system",
+    "altrex",
+    "css-variables"
+  ],
+  "author": "Altrex UI",
+  "license": "MIT",
+  "files": [
+    "dist"
+  ]
+}
