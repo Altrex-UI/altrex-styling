@@ -1,6 +1,6 @@
 {
   "name": "@altrex-ui/styling",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "description": "Core design tokens for the Altrex design system",
   "main": "dist/index.js",
   "scripts": {
