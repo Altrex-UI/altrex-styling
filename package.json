@@ -7,14 +7,28 @@
     "build": "node build.js",
     "watch": "node build.js --watch"
   },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Altrex-UI/altrex-styling.git"
+  },
+  "publishConfig": {
+    "access": "public"
+  },
   "keywords": [
     "design-tokens",
     "design-system",
     "altrex",
     "css-variables"
   ],
-  "author": "Altrex UI",
+  "author": {
+    "name": "Altrex UI",
+    "url": "https://github.com/Altrex-UI"
+  },
   "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/Altrex-UI/altrex-styling/issues"
+  },
+  "homepage": "https://github.com/Altrex-UI/altrex-styling#readme",
   "files": [
     "dist"
   ]
