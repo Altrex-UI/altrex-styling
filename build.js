@@ -81,12 +81,78 @@ function generateJS(tokens) {
   return js;
 }
 
+// Generate Stylus variables
+function generateStylus(tokens) {
+  const flattened = flattenTokens(tokens);
+
+  let stylus = '/**\n';
+  stylus += ' * Altrex Design System Tokens\n';
+  stylus += ' * Generated automatically - do not edit\n';
+  stylus += ' */\n\n';
+
+  // Generate Stylus variables that reference CSS custom properties
+  for (const [key, value] of Object.entries(flattened)) {
+    const stylusVarName = `$altrex-${key.replace(/\./g, '-')}`;
+    const cssVarName = toCssVarName(key);
+    stylus += `${stylusVarName} = var(${cssVarName})\n`;
+  }
+
+  stylus += '\n// Additional derived variables for legacy naming\n';
+  stylus += '$altrex-color-platform-interactive-200 = var(--altrex-colors-primary-200)\n';
+  stylus += '$altrex-color-platform-interactive-400 = var(--altrex-colors-primary-400)\n';
+  stylus += '$altrex-color-platform-interactive-850 = var(--altrex-colors-primary-700)\n';
+  stylus += '$altrex-color-platform-interactive-900 = var(--altrex-colors-primary-800)\n';
+  stylus += '$altrex-color-platform-interactive-1000 = var(--altrex-colors-primary-900)\n';
+  stylus += '$altrex-color-platform-white = #ffffff\n\n';
+
+  stylus += '$altrex-space-half = var(--altrex-spacing-1)\n';
+  stylus += '$altrex-space-1x = var(--altrex-spacing-2)\n';
+  stylus += '$altrex-space-2x = var(--altrex-spacing-4)\n';
+  stylus += '$altrex-space-3x = var(--altrex-spacing-6)\n\n';
+
+  stylus += '$altrex-font-family-body = -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif\n';
+  stylus += '$altrex-font-size-caption = var(--altrex-fontSize-xs)\n';
+  stylus += '$altrex-font-size-body-2 = var(--altrex-fontSize-sm)\n';
+  stylus += '$altrex-font-size-body-1 = var(--altrex-fontSize-base)\n\n';
+
+  stylus += '$altrex-border-radius-button-default = var(--altrex-borderRadius-default)\n';
+  stylus += '$altrex-border-radius-button-pill = var(--altrex-borderRadius-full)\n\n';
+
+  stylus += '$altrex-transition-default = 0.2s ease-in-out\n\n';
+
+  stylus += '// Icon size mixins\n';
+  stylus += 'altrex-icon-s()\n';
+  stylus += '  height: 16px\n';
+  stylus += '  width: 16px\n\n';
+
+  stylus += 'altrex-icon-m()\n';
+  stylus += '  height: 24px\n';
+  stylus += '  width: 24px\n\n';
+
+  stylus += 'altrex-icon-l()\n';
+  stylus += '  height: 32px\n';
+  stylus += '  width: 32px\n\n';
+
+  stylus += 'altrex-icon-xl()\n';
+  stylus += '  height: 48px\n';
+  stylus += '  width: 48px\n\n';
+
+  stylus += 'altrex-icon-xxl()\n';
+  stylus += '  height: 64px\n';
+  stylus += '  width: 64px\n';
+
+  return stylus;
+}
+
 // Write files
 const cssContent = generateCSS(tokens);
 writeFileSync(join(distDir, 'tokens.css'), cssContent);
 
 const jsContent = generateJS(tokens);
 writeFileSync(join(distDir, 'tokens.js'), jsContent);
+
+const stylusContent = generateStylus(tokens);
+writeFileSync(join(distDir, 'tokens.styl'), stylusContent);
 
 // Also write TypeScript declaration file
 const dtsContent = `/**
@@ -119,5 +185,6 @@ console.log('✓ Build complete!');
 console.log(`  Generated ${Object.keys(flattenTokens(tokens)).length} design tokens`);
 console.log(`  → dist/tokens.css`);
 console.log(`  → dist/tokens.js`);
+console.log(`  → dist/tokens.styl`);
 console.log(`  → dist/tokens.d.ts`);
 console.log(`  → dist/index.js`);
