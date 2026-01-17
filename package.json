@@ -1,0 +1,40 @@
+{
+  "name": "@altrex-ui/styling",
+  "version": "0.1.4",
+  "description": "Core design tokens for the Altrex design system",
+  "main": "dist/index.js",
+  "exports": {
+    ".": "./dist/index.js",
+    "./tokens.css": "./dist/tokens.css",
+    "./tokens.styl": "./dist/tokens.styl"
+  },
+  "scripts": {
+    "build": "node build.js",
+    "watch": "node build.js --watch"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Altrex-UI/altrex-styling.git"
+  },
+  "publishConfig": {
+    "access": "public"
+  },
+  "keywords": [
+    "design-tokens",
+    "design-system",
+    "altrex",
+    "css-variables"
+  ],
+  "author": {
+    "name": "Altrex UI",
+    "url": "https://github.com/Altrex-UI"
+  },
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/Altrex-UI/altrex-styling/issues"
+  },
+  "homepage": "https://github.com/Altrex-UI/altrex-styling#readme",
+  "files": [
+    "dist"
+  ]
+}
