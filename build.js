@@ -90,33 +90,32 @@ function generateStylus(tokens) {
   stylus += ' * Generated automatically - do not edit\n';
   stylus += ' */\n\n';
 
-  // Generate Stylus variables that reference CSS custom properties
+  // Generate Stylus variables with actual values for compile-time operations
   for (const [key, value] of Object.entries(flattened)) {
     const stylusVarName = `$altrex-${key.replace(/\./g, '-')}`;
-    const cssVarName = toCssVarName(key);
-    stylus += `${stylusVarName} = var(${cssVarName})\n`;
+    stylus += `${stylusVarName} = ${value}\n`;
   }
 
   stylus += '\n// Additional derived variables for legacy naming\n';
-  stylus += '$altrex-color-platform-interactive-200 = var(--altrex-colors-primary-200)\n';
-  stylus += '$altrex-color-platform-interactive-400 = var(--altrex-colors-primary-400)\n';
-  stylus += '$altrex-color-platform-interactive-850 = var(--altrex-colors-primary-700)\n';
-  stylus += '$altrex-color-platform-interactive-900 = var(--altrex-colors-primary-800)\n';
-  stylus += '$altrex-color-platform-interactive-1000 = var(--altrex-colors-primary-900)\n';
+  stylus += `$altrex-color-platform-interactive-200 = ${flattened['colors.primary.200']}\n`;
+  stylus += `$altrex-color-platform-interactive-400 = ${flattened['colors.primary.400']}\n`;
+  stylus += `$altrex-color-platform-interactive-850 = ${flattened['colors.primary.700']}\n`;
+  stylus += `$altrex-color-platform-interactive-900 = ${flattened['colors.primary.800']}\n`;
+  stylus += `$altrex-color-platform-interactive-1000 = ${flattened['colors.primary.900']}\n`;
   stylus += '$altrex-color-platform-white = #ffffff\n\n';
 
-  stylus += '$altrex-space-half = var(--altrex-spacing-1)\n';
-  stylus += '$altrex-space-1x = var(--altrex-spacing-2)\n';
-  stylus += '$altrex-space-2x = var(--altrex-spacing-4)\n';
-  stylus += '$altrex-space-3x = var(--altrex-spacing-6)\n\n';
+  stylus += `$altrex-space-half = ${flattened['spacing.1']}\n`;
+  stylus += `$altrex-space-1x = ${flattened['spacing.2']}\n`;
+  stylus += `$altrex-space-2x = ${flattened['spacing.4']}\n`;
+  stylus += `$altrex-space-3x = ${flattened['spacing.6']}\n\n`;
 
   stylus += '$altrex-font-family-body = -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif\n';
-  stylus += '$altrex-font-size-caption = var(--altrex-fontSize-xs)\n';
-  stylus += '$altrex-font-size-body-2 = var(--altrex-fontSize-sm)\n';
-  stylus += '$altrex-font-size-body-1 = var(--altrex-fontSize-base)\n\n';
+  stylus += `$altrex-font-size-caption = ${flattened['fontSize.xs']}\n`;
+  stylus += `$altrex-font-size-body-2 = ${flattened['fontSize.sm']}\n`;
+  stylus += `$altrex-font-size-body-1 = ${flattened['fontSize.base']}\n\n`;
 
-  stylus += '$altrex-border-radius-button-default = var(--altrex-borderRadius-default)\n';
-  stylus += '$altrex-border-radius-button-pill = var(--altrex-borderRadius-full)\n\n';
+  stylus += `$altrex-border-radius-button-default = ${flattened['borderRadius.default']}\n`;
+  stylus += `$altrex-border-radius-button-pill = ${flattened['borderRadius.full']}\n\n`;
 
   stylus += '$altrex-transition-default = 0.2s ease-in-out\n\n';
 
