@@ -136,6 +136,18 @@ $altrex-breakpoints-md = 768px
 $altrex-breakpoints-lg = 1024px
 $altrex-breakpoints-xl = 1280px
 $altrex-breakpoints-2xl = 1536px
+$altrex-touchTarget-minimum = 44px
+$altrex-touchTarget-comfortable = 48px
+$altrex-touchTarget-spacious = 56px
+$altrex-fluidSpacing-xs = clamp(0.25rem, 1vw, 0.5rem)
+$altrex-fluidSpacing-sm = clamp(0.5rem, 2vw, 1rem)
+$altrex-fluidSpacing-md = clamp(1rem, 3vw, 2rem)
+$altrex-fluidSpacing-lg = clamp(1.5rem, 4vw, 3rem)
+$altrex-fluidSpacing-xl = clamp(2rem, 6vw, 4rem)
+$altrex-fluidTypography-body = clamp(1rem, 0.95rem + 0.25vw, 1.125rem)
+$altrex-fluidTypography-h1 = clamp(2rem, 1.5rem + 2.5vw, 3rem)
+$altrex-fluidTypography-h2 = clamp(1.5rem, 1.25rem + 1.25vw, 2.25rem)
+$altrex-fluidTypography-h3 = clamp(1.25rem, 1.125rem + 0.625vw, 1.75rem)
 
 // Component-specific tokens
 $altrex-border-radius-button-default = $altrex-borderRadius-default
@@ -170,3 +182,48 @@ altrex-icon-xl()
 altrex-icon-xxl()
   height: 64px
   width: 64px
+
+// Mobile-first breakpoint mixin
+// Usage: +above('md') { /* styles */ }
+above(breakpoint)
+  @media (min-width: lookup('$altrex-breakpoints-' + breakpoint))
+    {block}
+
+// Touch-first interaction detection
+// Usage: +touch-device() { /* styles */ }
+touch-device()
+  @media (hover: none) and (pointer: coarse)
+    {block}
+
+// Touch target sizing (WCAG 2.1 Level AAA)
+// Usage: touch-target() or touch-target('comfortable')
+touch-target(size = 'minimum')
+  min-width: lookup('$altrex-touchTarget-' + size)
+  min-height: lookup('$altrex-touchTarget-' + size)
+  display: inline-flex
+  align-items: center
+  justify-content: center
+
+// Container with mobile padding
+// Usage: container-width() or container-width($altrex-breakpoints-lg)
+container-width(max-width = '100%')
+  width: 100%
+  max-width: max-width
+  margin-left: auto
+  margin-right: auto
+  padding-left: $altrex-spacing-4
+  padding-right: $altrex-spacing-4
+
+  +above('md')
+    padding-left: $altrex-spacing-6
+    padding-right: $altrex-spacing-6
+
+// Stack to row pattern
+// Usage: stack-to-row() or stack-to-row('lg')
+stack-to-row(breakpoint = 'md')
+  display: flex
+  flex-direction: column
+  gap: $altrex-spacing-4
+
+  +above(breakpoint)
+    flex-direction: row

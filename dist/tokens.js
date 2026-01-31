@@ -186,6 +186,24 @@ export const tokens = {
     "lg": "1024px",
     "xl": "1280px",
     "2xl": "1536px"
+  },
+  "touchTarget": {
+    "minimum": "44px",
+    "comfortable": "48px",
+    "spacious": "56px"
+  },
+  "fluidSpacing": {
+    "xs": "clamp(0.25rem, 1vw, 0.5rem)",
+    "sm": "clamp(0.5rem, 2vw, 1rem)",
+    "md": "clamp(1rem, 3vw, 2rem)",
+    "lg": "clamp(1.5rem, 4vw, 3rem)",
+    "xl": "clamp(2rem, 6vw, 4rem)"
+  },
+  "fluidTypography": {
+    "body": "clamp(1rem, 0.95rem + 0.25vw, 1.125rem)",
+    "h1": "clamp(2rem, 1.5rem + 2.5vw, 3rem)",
+    "h2": "clamp(1.5rem, 1.25rem + 1.25vw, 2.25rem)",
+    "h3": "clamp(1.25rem, 1.125rem + 0.625vw, 1.75rem)"
   }
 };
 
@@ -322,7 +340,19 @@ export const flatTokens = {
   "breakpoints.md": "768px",
   "breakpoints.lg": "1024px",
   "breakpoints.xl": "1280px",
-  "breakpoints.2xl": "1536px"
+  "breakpoints.2xl": "1536px",
+  "touchTarget.minimum": "44px",
+  "touchTarget.comfortable": "48px",
+  "touchTarget.spacious": "56px",
+  "fluidSpacing.xs": "clamp(0.25rem, 1vw, 0.5rem)",
+  "fluidSpacing.sm": "clamp(0.5rem, 2vw, 1rem)",
+  "fluidSpacing.md": "clamp(1rem, 3vw, 2rem)",
+  "fluidSpacing.lg": "clamp(1.5rem, 4vw, 3rem)",
+  "fluidSpacing.xl": "clamp(2rem, 6vw, 4rem)",
+  "fluidTypography.body": "clamp(1rem, 0.95rem + 0.25vw, 1.125rem)",
+  "fluidTypography.h1": "clamp(2rem, 1.5rem + 2.5vw, 3rem)",
+  "fluidTypography.h2": "clamp(1.5rem, 1.25rem + 1.25vw, 2.25rem)",
+  "fluidTypography.h3": "clamp(1.25rem, 1.125rem + 0.625vw, 1.75rem)"
 };
 
 export const cssVarNames = {
@@ -458,5 +488,17 @@ export const cssVarNames = {
   "breakpoints.md": "--altrex-breakpoints-md",
   "breakpoints.lg": "--altrex-breakpoints-lg",
   "breakpoints.xl": "--altrex-breakpoints-xl",
-  "breakpoints.2xl": "--altrex-breakpoints-2xl"
+  "breakpoints.2xl": "--altrex-breakpoints-2xl",
+  "touchTarget.minimum": "--altrex-touchTarget-minimum",
+  "touchTarget.comfortable": "--altrex-touchTarget-comfortable",
+  "touchTarget.spacious": "--altrex-touchTarget-spacious",
+  "fluidSpacing.xs": "--altrex-fluidSpacing-xs",
+  "fluidSpacing.sm": "--altrex-fluidSpacing-sm",
+  "fluidSpacing.md": "--altrex-fluidSpacing-md",
+  "fluidSpacing.lg": "--altrex-fluidSpacing-lg",
+  "fluidSpacing.xl": "--altrex-fluidSpacing-xl",
+  "fluidTypography.body": "--altrex-fluidTypography-body",
+  "fluidTypography.h1": "--altrex-fluidTypography-h1",
+  "fluidTypography.h2": "--altrex-fluidTypography-h2",
+  "fluidTypography.h3": "--altrex-fluidTypography-h3"
 };

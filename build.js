@@ -129,7 +129,51 @@ function generateStylus(tokens) {
 
   stylus += 'altrex-icon-xxl()\n';
   stylus += '  height: 64px\n';
-  stylus += '  width: 64px\n';
+  stylus += '  width: 64px\n\n';
+
+  // Mobile-first responsive mixins
+  stylus += '// Mobile-first breakpoint mixin\n';
+  stylus += '// Usage: +above(\'md\') { /* styles */ }\n';
+  stylus += 'above(breakpoint)\n';
+  stylus += '  @media (min-width: lookup(\'$altrex-breakpoints-\' + breakpoint))\n';
+  stylus += '    {block}\n\n';
+
+  stylus += '// Touch-first interaction detection\n';
+  stylus += '// Usage: +touch-device() { /* styles */ }\n';
+  stylus += 'touch-device()\n';
+  stylus += '  @media (hover: none) and (pointer: coarse)\n';
+  stylus += '    {block}\n\n';
+
+  stylus += '// Touch target sizing (WCAG 2.1 Level AAA)\n';
+  stylus += '// Usage: touch-target() or touch-target(\'comfortable\')\n';
+  stylus += 'touch-target(size = \'minimum\')\n';
+  stylus += '  min-width: lookup(\'$altrex-touchTarget-\' + size)\n';
+  stylus += '  min-height: lookup(\'$altrex-touchTarget-\' + size)\n';
+  stylus += '  display: inline-flex\n';
+  stylus += '  align-items: center\n';
+  stylus += '  justify-content: center\n\n';
+
+  stylus += '// Container with mobile padding\n';
+  stylus += '// Usage: container-width() or container-width($altrex-breakpoints-lg)\n';
+  stylus += 'container-width(max-width = \'100%\')\n';
+  stylus += '  width: 100%\n';
+  stylus += '  max-width: max-width\n';
+  stylus += '  margin-left: auto\n';
+  stylus += '  margin-right: auto\n';
+  stylus += '  padding-left: $altrex-spacing-4\n';
+  stylus += '  padding-right: $altrex-spacing-4\n\n';
+  stylus += '  +above(\'md\')\n';
+  stylus += '    padding-left: $altrex-spacing-6\n';
+  stylus += '    padding-right: $altrex-spacing-6\n\n';
+
+  stylus += '// Stack to row pattern\n';
+  stylus += '// Usage: stack-to-row() or stack-to-row(\'lg\')\n';
+  stylus += 'stack-to-row(breakpoint = \'md\')\n';
+  stylus += '  display: flex\n';
+  stylus += '  flex-direction: column\n';
+  stylus += '  gap: $altrex-spacing-4\n\n';
+  stylus += '  +above(breakpoint)\n';
+  stylus += '    flex-direction: row\n';
 
   return stylus;
 }
@@ -159,6 +203,9 @@ export const tokens: {
   borderRadius: Record<string, string>;
   shadow: Record<string, string>;
   breakpoints: Record<string, string>;
+  touchTarget: Record<string, string>;
+  fluidSpacing: Record<string, string>;
+  fluidTypography: Record<string, string>;
 };
 
 export const flatTokens: Record<string, string>;
