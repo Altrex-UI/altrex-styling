@@ -1,12 +1,13 @@
 {
   "name": "@altrex-ui/styling",
-  "version": "1.0.3",
+  "version": "2.0.0",
   "description": "Core design tokens for the Altrex design system",
   "main": "dist/index.js",
   "exports": {
     ".": "./dist/index.js",
     "./tokens.css": "./dist/tokens.css",
-    "./tokens.styl": "./dist/tokens.styl"
+    "./tokens.styl": "./dist/tokens.styl",
+    "./react-native": "./dist/react-native.js"
   },
   "scripts": {
     "build": "node build.js",
@@ -35,6 +36,7 @@
   },
   "homepage": "https://github.com/Altrex-UI/altrex-styling#readme",
   "files": [
-    "dist"
+    "dist",
+    "fonts"
   ]
 }

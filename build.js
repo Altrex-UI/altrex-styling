@@ -178,6 +178,54 @@ function generateStylus(tokens) {
   return stylus;
 }
 
+// Generate React Native export — brand tokens only, all values are RN-safe (numbers + hex strings)
+function generateReactNative(tokens) {
+  const { brands } = tokens;
+
+  let js = '/**\n';
+  js += ' * Altrex Design System — React Native Tokens\n';
+  js += ' * Generated automatically - do not edit\n';
+  js += ' * Values are React Native safe: colors are hex strings, sizes are plain numbers.\n';
+  js += ' */\n\n';
+
+  for (const [brandKey, brand] of Object.entries(brands)) {
+    js += `export const ${brandKey} = ${JSON.stringify(brand, null, 2)};\n\n`;
+  }
+
+  js += `export const brands = ${JSON.stringify(brands, null, 2)};\n`;
+
+  return js;
+}
+
+function generateReactNativeDts(tokens) {
+  const { brands } = tokens;
+  let dts = '/**\n';
+  dts += ' * Altrex Design System — React Native Tokens\n';
+  dts += ' * Generated automatically - do not edit\n';
+  dts += ' */\n\n';
+
+  for (const [brandKey, brand] of Object.entries(brands)) {
+    dts += `export declare const ${brandKey}: ${buildDtsType(brand)};\n\n`;
+  }
+
+  const brandsType = '{\n' + Object.entries(brands).map(([k, v]) => `  ${k}: ${buildDtsType(v)};`).join('\n') + '\n}';
+  dts += `export declare const brands: ${brandsType};\n`;
+
+  return dts;
+}
+
+function buildDtsType(obj, indent = '') {
+  if (typeof obj === 'string') return 'string';
+  if (typeof obj === 'number') return 'number';
+  const inner = Object.entries(obj)
+    .map(([k, v]) => {
+      const key = /^\d/.test(k) ? `'${k}'` : k;
+      return `${indent}  ${key}: ${buildDtsType(v, indent + '  ')};`;
+    })
+    .join('\n');
+  return `{\n${inner}\n${indent}}`;
+}
+
 // Write files
 const cssContent = generateCSS(tokens);
 writeFileSync(join(distDir, 'tokens.css'), cssContent);
@@ -188,7 +236,13 @@ writeFileSync(join(distDir, 'tokens.js'), jsContent);
 const stylusContent = generateStylus(tokens);
 writeFileSync(join(distDir, 'tokens.styl'), stylusContent);
 
-// Also write TypeScript declaration file
+const rnContent = generateReactNative(tokens);
+writeFileSync(join(distDir, 'react-native.js'), rnContent);
+
+const rnDtsContent = generateReactNativeDts(tokens);
+writeFileSync(join(distDir, 'react-native.d.ts'), rnDtsContent);
+
+// TypeScript declaration file for the main export
 const dtsContent = `/**
  * Altrex Design System Tokens
  * Generated automatically - do not edit
@@ -206,9 +260,10 @@ export const tokens: {
   touchTarget: Record<string, string>;
   fluidSpacing: Record<string, string>;
   fluidTypography: Record<string, string>;
+  brands: Record<string, unknown>;
 };
 
-export const flatTokens: Record<string, string>;
+export const flatTokens: Record<string, string | number>;
 export const cssVarNames: Record<string, string>;
 `;
 
@@ -224,4 +279,6 @@ console.log(`  → dist/tokens.css`);
 console.log(`  → dist/tokens.js`);
 console.log(`  → dist/tokens.styl`);
 console.log(`  → dist/tokens.d.ts`);
+console.log(`  → dist/react-native.js`);
+console.log(`  → dist/react-native.d.ts`);
 console.log(`  → dist/index.js`);

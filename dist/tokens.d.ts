@@ -15,7 +15,8 @@ export const tokens: {
   touchTarget: Record<string, string>;
   fluidSpacing: Record<string, string>;
   fluidTypography: Record<string, string>;
+  brands: Record<string, unknown>;
 };
 
-export const flatTokens: Record<string, string>;
+export const flatTokens: Record<string, string | number>;
 export const cssVarNames: Record<string, string>;
