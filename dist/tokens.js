@@ -285,6 +285,41 @@ export const tokens = {
         "xl": 24,
         "full": 9999
       }
+    },
+    "arcaneRealms": {
+      "primitive": {
+        "navyDeep": "#0E2C40",
+        "navyLight": "#2F4A72",
+        "gold": "#D4B67A",
+        "goldMuted": "#998B5F",
+        "teal": "#4ecdc4",
+        "tealDark": "#44a08d",
+        "coral": "#ff6b6b",
+        "coralDark": "#ee5a24",
+        "limeActive": "#4ade80",
+        "amberBadge": "#fbbf24",
+        "white": "#ffffff"
+      },
+      "gradient": {
+        "background": "linear-gradient(135deg, #2F4A72 0%, #0E2C40 100%)",
+        "primaryButton": "linear-gradient(135deg, #2F4A72, #0E2C40)",
+        "primaryButtonHover": "linear-gradient(135deg, #0E2C40, #2F4A72)",
+        "secondaryButton": "linear-gradient(135deg, #998B5F, #D4B67A)",
+        "secondaryButtonHover": "linear-gradient(135deg, #D4B67A, #998B5F)",
+        "successButton": "linear-gradient(135deg, #4ecdc4, #44a08d)",
+        "successButtonHover": "linear-gradient(135deg, #44a08d, #4ecdc4)",
+        "dangerButton": "linear-gradient(135deg, #ff6b6b, #ee5a24)",
+        "dangerButtonHover": "linear-gradient(135deg, #ee5a24, #ff6b6b)"
+      },
+      "glass": {
+        "surface": "rgba(255, 255, 255, 0.1)",
+        "surfaceSubtle": "rgba(255, 255, 255, 0.05)",
+        "border": "rgba(255, 255, 255, 0.2)",
+        "borderHover": "rgba(255, 255, 255, 0.3)",
+        "blur": "blur(20px)",
+        "shadow": "0 8px 32px rgba(0, 0, 0, 0.1)",
+        "shadowHover": "0 12px 40px rgba(0, 0, 0, 0.15)"
+      }
     }
   }
 };
@@ -498,7 +533,34 @@ export const flatTokens = {
   "brands.gymAndTonic.borderRadius.md": 12,
   "brands.gymAndTonic.borderRadius.lg": 16,
   "brands.gymAndTonic.borderRadius.xl": 24,
-  "brands.gymAndTonic.borderRadius.full": 9999
+  "brands.gymAndTonic.borderRadius.full": 9999,
+  "brands.arcaneRealms.primitive.navyDeep": "#0E2C40",
+  "brands.arcaneRealms.primitive.navyLight": "#2F4A72",
+  "brands.arcaneRealms.primitive.gold": "#D4B67A",
+  "brands.arcaneRealms.primitive.goldMuted": "#998B5F",
+  "brands.arcaneRealms.primitive.teal": "#4ecdc4",
+  "brands.arcaneRealms.primitive.tealDark": "#44a08d",
+  "brands.arcaneRealms.primitive.coral": "#ff6b6b",
+  "brands.arcaneRealms.primitive.coralDark": "#ee5a24",
+  "brands.arcaneRealms.primitive.limeActive": "#4ade80",
+  "brands.arcaneRealms.primitive.amberBadge": "#fbbf24",
+  "brands.arcaneRealms.primitive.white": "#ffffff",
+  "brands.arcaneRealms.gradient.background": "linear-gradient(135deg, #2F4A72 0%, #0E2C40 100%)",
+  "brands.arcaneRealms.gradient.primaryButton": "linear-gradient(135deg, #2F4A72, #0E2C40)",
+  "brands.arcaneRealms.gradient.primaryButtonHover": "linear-gradient(135deg, #0E2C40, #2F4A72)",
+  "brands.arcaneRealms.gradient.secondaryButton": "linear-gradient(135deg, #998B5F, #D4B67A)",
+  "brands.arcaneRealms.gradient.secondaryButtonHover": "linear-gradient(135deg, #D4B67A, #998B5F)",
+  "brands.arcaneRealms.gradient.successButton": "linear-gradient(135deg, #4ecdc4, #44a08d)",
+  "brands.arcaneRealms.gradient.successButtonHover": "linear-gradient(135deg, #44a08d, #4ecdc4)",
+  "brands.arcaneRealms.gradient.dangerButton": "linear-gradient(135deg, #ff6b6b, #ee5a24)",
+  "brands.arcaneRealms.gradient.dangerButtonHover": "linear-gradient(135deg, #ee5a24, #ff6b6b)",
+  "brands.arcaneRealms.glass.surface": "rgba(255, 255, 255, 0.1)",
+  "brands.arcaneRealms.glass.surfaceSubtle": "rgba(255, 255, 255, 0.05)",
+  "brands.arcaneRealms.glass.border": "rgba(255, 255, 255, 0.2)",
+  "brands.arcaneRealms.glass.borderHover": "rgba(255, 255, 255, 0.3)",
+  "brands.arcaneRealms.glass.blur": "blur(20px)",
+  "brands.arcaneRealms.glass.shadow": "0 8px 32px rgba(0, 0, 0, 0.1)",
+  "brands.arcaneRealms.glass.shadowHover": "0 12px 40px rgba(0, 0, 0, 0.15)"
 };
 
 export const cssVarNames = {
@@ -710,5 +772,32 @@ export const cssVarNames = {
   "brands.gymAndTonic.borderRadius.md": "--altrex-brands-gymAndTonic-borderRadius-md",
   "brands.gymAndTonic.borderRadius.lg": "--altrex-brands-gymAndTonic-borderRadius-lg",
   "brands.gymAndTonic.borderRadius.xl": "--altrex-brands-gymAndTonic-borderRadius-xl",
-  "brands.gymAndTonic.borderRadius.full": "--altrex-brands-gymAndTonic-borderRadius-full"
+  "brands.gymAndTonic.borderRadius.full": "--altrex-brands-gymAndTonic-borderRadius-full",
+  "brands.arcaneRealms.primitive.navyDeep": "--altrex-brands-arcaneRealms-primitive-navyDeep",
+  "brands.arcaneRealms.primitive.navyLight": "--altrex-brands-arcaneRealms-primitive-navyLight",
+  "brands.arcaneRealms.primitive.gold": "--altrex-brands-arcaneRealms-primitive-gold",
+  "brands.arcaneRealms.primitive.goldMuted": "--altrex-brands-arcaneRealms-primitive-goldMuted",
+  "brands.arcaneRealms.primitive.teal": "--altrex-brands-arcaneRealms-primitive-teal",
+  "brands.arcaneRealms.primitive.tealDark": "--altrex-brands-arcaneRealms-primitive-tealDark",
+  "brands.arcaneRealms.primitive.coral": "--altrex-brands-arcaneRealms-primitive-coral",
+  "brands.arcaneRealms.primitive.coralDark": "--altrex-brands-arcaneRealms-primitive-coralDark",
+  "brands.arcaneRealms.primitive.limeActive": "--altrex-brands-arcaneRealms-primitive-limeActive",
+  "brands.arcaneRealms.primitive.amberBadge": "--altrex-brands-arcaneRealms-primitive-amberBadge",
+  "brands.arcaneRealms.primitive.white": "--altrex-brands-arcaneRealms-primitive-white",
+  "brands.arcaneRealms.gradient.background": "--altrex-brands-arcaneRealms-gradient-background",
+  "brands.arcaneRealms.gradient.primaryButton": "--altrex-brands-arcaneRealms-gradient-primaryButton",
+  "brands.arcaneRealms.gradient.primaryButtonHover": "--altrex-brands-arcaneRealms-gradient-primaryButtonHover",
+  "brands.arcaneRealms.gradient.secondaryButton": "--altrex-brands-arcaneRealms-gradient-secondaryButton",
+  "brands.arcaneRealms.gradient.secondaryButtonHover": "--altrex-brands-arcaneRealms-gradient-secondaryButtonHover",
+  "brands.arcaneRealms.gradient.successButton": "--altrex-brands-arcaneRealms-gradient-successButton",
+  "brands.arcaneRealms.gradient.successButtonHover": "--altrex-brands-arcaneRealms-gradient-successButtonHover",
+  "brands.arcaneRealms.gradient.dangerButton": "--altrex-brands-arcaneRealms-gradient-dangerButton",
+  "brands.arcaneRealms.gradient.dangerButtonHover": "--altrex-brands-arcaneRealms-gradient-dangerButtonHover",
+  "brands.arcaneRealms.glass.surface": "--altrex-brands-arcaneRealms-glass-surface",
+  "brands.arcaneRealms.glass.surfaceSubtle": "--altrex-brands-arcaneRealms-glass-surfaceSubtle",
+  "brands.arcaneRealms.glass.border": "--altrex-brands-arcaneRealms-glass-border",
+  "brands.arcaneRealms.glass.borderHover": "--altrex-brands-arcaneRealms-glass-borderHover",
+  "brands.arcaneRealms.glass.blur": "--altrex-brands-arcaneRealms-glass-blur",
+  "brands.arcaneRealms.glass.shadow": "--altrex-brands-arcaneRealms-glass-shadow",
+  "brands.arcaneRealms.glass.shadowHover": "--altrex-brands-arcaneRealms-glass-shadowHover"
 };

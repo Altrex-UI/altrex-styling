@@ -84,6 +84,42 @@ export declare const gymAndTonic: {
   };
 };
 
+export declare const arcaneRealms: {
+  primitive: {
+    navyDeep: string;
+    navyLight: string;
+    gold: string;
+    goldMuted: string;
+    teal: string;
+    tealDark: string;
+    coral: string;
+    coralDark: string;
+    limeActive: string;
+    amberBadge: string;
+    white: string;
+  };
+  gradient: {
+    background: string;
+    primaryButton: string;
+    primaryButtonHover: string;
+    secondaryButton: string;
+    secondaryButtonHover: string;
+    successButton: string;
+    successButtonHover: string;
+    dangerButton: string;
+    dangerButtonHover: string;
+  };
+  glass: {
+    surface: string;
+    surfaceSubtle: string;
+    border: string;
+    borderHover: string;
+    blur: string;
+    shadow: string;
+    shadowHover: string;
+  };
+};
+
 export declare const brands: {
   gymAndTonic: {
   primitive: {
@@ -163,6 +199,41 @@ export declare const brands: {
     lg: number;
     xl: number;
     full: number;
+  };
+};
+  arcaneRealms: {
+  primitive: {
+    navyDeep: string;
+    navyLight: string;
+    gold: string;
+    goldMuted: string;
+    teal: string;
+    tealDark: string;
+    coral: string;
+    coralDark: string;
+    limeActive: string;
+    amberBadge: string;
+    white: string;
+  };
+  gradient: {
+    background: string;
+    primaryButton: string;
+    primaryButtonHover: string;
+    secondaryButton: string;
+    secondaryButtonHover: string;
+    successButton: string;
+    successButtonHover: string;
+    dangerButton: string;
+    dangerButtonHover: string;
+  };
+  glass: {
+    surface: string;
+    surfaceSubtle: string;
+    border: string;
+    borderHover: string;
+    blur: string;
+    shadow: string;
+    shadowHover: string;
   };
 };
 };
